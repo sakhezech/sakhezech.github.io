@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{title}}</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    {{{_ws_script}}}
+  </head>
+
+  <body class="{{^theme}}rose-pine{{/theme}}{{theme}}">
+    <div class="container">
+      <nav>
+        <a href="/">home</a>
+        <a href="https://github.com/sakhezech">github</a>
+      </nav>
+      <main>{{{slot}}}</main>
+      <footer></footer>
+    </div>
+  </body>
+</html>
