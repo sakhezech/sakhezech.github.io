@@ -1,0 +1,33 @@
+[project]
+name = 'sakhezech.github.io'
+dynamic = ['version']
+dependencies = ['faterunner', """
+  pagebuilder\
+  @git+https://github.com/sakhezech/pagebuilder.git\
+  @02edad02a50b1e07fd925a25be9287f9f340976f
+  """]
+
+[tool.faterunner.targets]
+build = ['python3 -m pagebuilder pages/ templates/ assets/ .dist/']
+watch = ['''
+  python3 -m pagebuilder pages/ templates/ assets/ .dist/
+    --serve 0.0.0.0:5000 --ws localhost:9797
+  ''']
+
+[tool.ruff]
+line-length = 79
+[tool.ruff.format]
+quote-style = 'single'
+[tool.ruff.lint]
+extend-select = ['I', 'E501']
+
+[tool.hatch.version]
+path = '__version__.py'
+[tool.hatch.build.targets.wheel]
+include = ['__version__.py']
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[build-system]
+requires = ['hatchling']
+build-backend = 'hatchling.build'
